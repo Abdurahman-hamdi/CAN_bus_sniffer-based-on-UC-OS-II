@@ -10,10 +10,16 @@
  /****************************************** Includes***************************/
  #include"GPIO.h"
 
+/******************************************* Constants ************************/
+
+#define GPIO_AFRH_AFRH11                     ((uint32_t) 0x0000F000)
+#define GPIO_AFRH_AFRH11_AF9                ((uint32_t) 0x00009000)
+#define GPIO_AFRH_AFRH12                     ((uint32_t) 0x000F0000)
+#define GPIO_AFRH_AFRH12_AF9                 ((uint32_t) 0x00090000)
  /**************************************functions implementation****************/
 
  /**
- * @brief   CAN1_GPIO init whic configure PA11(CAN1_RX) and PA12 (CAN1_TX)
+ * @brief   CAN1_GPIO init which configures PA11(CAN1_RX) and PA12 (CAN1_TX)
  * @name    CAN1_GPIO_config
  * @param   none
  * @retval  none
@@ -37,6 +43,9 @@ void CAN1_GPIO_config(void)
   /* Select pull up */
   GPIOA->PUPDR &= ~(GPIO_PUPDR_PUPDR11 | GPIO_PUPDR_PUPDR12);
   GPIOA->PUPDR |= (GPIO_PUPDR_PUPDR11_0 | GPIO_PUPDR_PUPDR12_0);
+  /* Select AF9 */
+  GPIOA->AFR[1] &= ~(GPIO_AFRH_AFRH11 | GPIO_AFRH_AFRH12);
+  GPIOA->AFR[1] |= (GPIO_AFRH_AFRH11_AF9 | GPIO_AFRH_AFRH12_AF9);
 }
 
 
