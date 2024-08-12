@@ -403,20 +403,19 @@ void  OSTimeTickHook (void)
 *********************************************************************************************************
 */
 
-/*void  SysTick_Handler (void)
+void  SysTick_Handler (void)
 {
 	SysTickCounter++;
     OS_CPU_SR  cpu_sr;
 
-
-    OS_ENTER_CRITICAL();                          Tell uC/OS-II that we are starting an ISR
+    OS_ENTER_CRITICAL();                          //Tell uC/OS-II that we are starting an ISR
     OSIntNesting++;
     OS_EXIT_CRITICAL();
 
-    OSTimeTick();                                 Call uC/OS-II's OSTimeTick()
+    OSTimeTick();                                // Call uC/OS-II's OSTimeTick()
 
-    OSIntExit();                                  Tell uC/OS-II that we are leaving the ISR
-}*/
+    OSIntExit();                                //  Tell uC/OS-II that we are leaving the ISR
+}
 
 
 /*$PAGE*/
