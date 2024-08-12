@@ -31,7 +31,7 @@
 	/* Select 1 stop bit */
 	USART3->CR2 &= ~USART_CR2_STOP;
 	/* disable parity control */
-    USART3->CR1 &= ~USART_CR1_PCE;
+    	USART3->CR1 &= ~USART_CR1_PCE;
 
 	//set baudrate at 38.4kbs ,see page 986 at reference manual
 	/*USARTDIV = Fpclk / (16 * baud_rate)
@@ -43,7 +43,7 @@
 	     * BRR          = 0x446 */
 	/* Write to USART BRR register */
 	USART3->BRR = (uint16_t)0x446;
-    /* Enable USART3 */
+    	/* Enable USART3 */
 	USART3->CR1 |= USART_CR1_UE;
 	/* Enable transmitter */
 	USART3->CR1 |= USART_CR1_TE;
