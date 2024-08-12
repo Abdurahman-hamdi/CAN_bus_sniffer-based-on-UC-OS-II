@@ -77,3 +77,16 @@ CAN_CFG_ERR CAN1_INIT(void)
 	CAN1->FMR &= ~CAN_FMR_FINIT; //Filter Initialization completed
     return CAN_CFG_PASSED;
 }
+
+/**
+ * @brief   CAN1_RX0_IRQHandler to Handle the received msg and notify UC_OS with the new msg
+ * @name    CAN1_RX0_IRQHandler
+ * @param   none
+ * @retval  none
+ */
+void CAN1_RX0_IRQHandler(void)
+{
+
+
+
+}
