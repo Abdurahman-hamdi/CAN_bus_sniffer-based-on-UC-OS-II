@@ -79,6 +79,19 @@ CAN_CFG_ERR CAN1_INIT(void)
 }
 
 /**
+ * @brief   CAN1_receive_msg to Handle the received msg and update the reception buffer with received msg
+ * @name    CAN1_receive_msg
+ * @param   none
+ * @retval  none
+ */
+void CAN1_receive_msg(void)
+{
+
+
+
+}
+
+/**
  * @brief   CAN1_RX0_IRQHandler to Handle the received msg and notify UC_OS with the new msg
  * @name    CAN1_RX0_IRQHandler
  * @param   none

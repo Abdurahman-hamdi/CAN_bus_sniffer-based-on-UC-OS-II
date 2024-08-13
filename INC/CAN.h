@@ -12,15 +12,26 @@
 /***********************************Includes********************/
 #include"GPIO.h"
 /**********************************ENUMs************************/
+   /*CAN MSG*/
+typedef struct 
+{
+    /* data */
+    uint8_t data[8];
+    uint8_t lower_stdid;
+    uint8_t  upper_stdid;
+    uint8_t dlc;
+
+} CAN_MSG;
+
+   
     /* CAN CFG err */
 typedef enum
 {
     CAN_CFG_PASSED,
     CAN_CFG_FAILED
 }CAN_CFG_ERR;
-
-/*********************************Includes**********************/
+/*********************************Functions prototypes**********************/
 CAN_CFG_ERR CAN1_INIT(void);
-
+void CAN1_receive_msg(void);
 
 #endif
