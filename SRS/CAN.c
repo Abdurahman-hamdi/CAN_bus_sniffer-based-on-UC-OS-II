@@ -9,6 +9,7 @@
 
  /************************************** Includes *******************************/
  #include"CAN.h"
+ #include  <ucos_ii.h>
 /**************************************** Constants *****************************/
 #define CAN_INIT_TIMEOUT_MAX	    	0xfffu
 /****************************************Functions implementation**************/
@@ -90,15 +91,4 @@ void CAN1_receive_msg(void)
 
 }
 
-/**
- * @brief   CAN1_RX0_IRQHandler to Handle the received msg and notify UC_OS with the new msg
- * @name    CAN1_RX0_IRQHandler
- * @param   none
- * @retval  none
- */
-void CAN1_RX0_IRQHandler(void)
-{
 
-
-
-}
