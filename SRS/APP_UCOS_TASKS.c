@@ -33,3 +33,15 @@ void CAN1_RX0_IRQHandler(void)
 
     OSIntExit(); // Tell uC/OS-II that we are leaving the ISR 
 }
+
+static void USB_transmit_task(void*pdata)
+{
+    pdata=pdata;
+    while (1)
+    {
+        /* code */
+    }
+    
+
+
+}
