@@ -33,16 +33,16 @@
 	/* disable parity control */
     	USART3->CR1 &= ~USART_CR1_PCE;
 
-	//set baudrate at 38.4kbs ,see page 986 at reference manual
+	//set baudrate at 1.826MBps ,see page 986 at reference manual
 	/*USARTDIV = Fpclk / (16 * baud_rate)
-	     *          = 42000000 / (16 * 38400) = 68.375
+	     *          = 42000000 / (16 * 1.826MBps) = 1.4375
 	     *
-	     * DIV_Fraction = 16 * 0.375 = 0x6
-	     * DIV_Mantissa = 68 = 0x44
+	     * DIV_Fraction = 16 * 0.4375 = 0x1
+	     * DIV_Mantissa = 1 = 0x1
 	     *
-	     * BRR          = 0x446 */
+	     * BRR          = 0x11 */
 	/* Write to USART BRR register */
-	USART3->BRR = (uint16_t)0x446;
+	USART3->BRR = (uint16_t)0x11;
     	/* Enable USART3 */
 	USART3->CR1 |= USART_CR1_UE;
 	/* Enable transmitter */
