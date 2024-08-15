@@ -20,8 +20,8 @@ typedef enum
 #include"GPIO.h"
 /*********************************Functions prototypes***************************/
 void USART3_Init(void);
-UARTTX_STATUS USART3_char_Transmit(const char data);
-
+UARTTX_STATUS USART3_char_Transmit(uint8_t data);
+UARTTX_STATUS USART3_string_Transmit(uint8_t*);
 
 
 

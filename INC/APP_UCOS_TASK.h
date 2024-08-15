@@ -13,14 +13,6 @@
 #include"CAN.h"
 #include "ucos_ii.h"
 /****************************************Function prototype********************/
-
 void APP_system_init(void);
 void App_system_run(void);
-
-
-
-
-
-
-
 #endif

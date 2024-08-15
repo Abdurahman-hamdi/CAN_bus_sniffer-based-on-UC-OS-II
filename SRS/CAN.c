@@ -12,6 +12,8 @@
  #include  <ucos_ii.h>
 /**************************************** Constants *****************************/
 #define CAN_INIT_TIMEOUT_MAX	    	0xfffu
+/****************************************Data defination*************************/
+CAN_MSG CAN1_MSG;
 /****************************************Functions implementation**************/
  /**
  * @brief   CAN1_INIT  which configures CAN1 as receiver with 500b/s and init the filteration.
@@ -86,9 +88,9 @@ CAN_CFG_ERR CAN1_INIT(void)
  */
 void CAN1_receive_msg(void)
 {
-
-
-
+    CAN1_MSG.lower_stdid = (CAN1->sFIFOMailBox[CAN_FIFO_0].RIR >> 21);
+    CAN1_MSG.upper_stdid = (CAN1->sFIFOMailBox[CAN_FIFO_0].RIR >> 29);
+    CAN1_MSG.dlc         = CAN1->sFIFOMailBox[CAN_FIFO_0].RDTR;
 }
 
 

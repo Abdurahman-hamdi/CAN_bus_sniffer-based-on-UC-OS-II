@@ -9,7 +9,7 @@
  /************************************** Includes *******************************/
  #include"UART.h"
  /************************************** Constants ******************************/
- #define UARTTX_TIMEOUT_MAX               0xfffu
+ #define UARTTX_TIMEOUT_MAX               0xffu
  /**************************************Functions implementation*****************/
 
  /**
@@ -52,10 +52,10 @@
 /**
  * @brief   USART3_char_Transmit to transmit char to the PC over USB.
  * @name    USART3_char_Transmit
- * @param   const char data
+ * @param   uint8_t data
  * @retval  UARTTX_STATUS =PASSED OR FAILED
  */
- UARTTX_STATUS USART3_char_Transmit(const char data)
+ UARTTX_STATUS USART3_char_Transmit(uint8_t data)
  {
     uint32_t timeout=0;
     // Write data into transmit data register
@@ -70,3 +70,20 @@
 	}
     return UART_TX_PASSED;
  }
+
+/**
+ * @brief   USART3_string_Transmit to transmit string to the PC over USB.
+ * @name    USART3_string_Transmit
+ * @param   uint8_t* msg
+ * @retval  UARTTX_STATUS =PASSED OR FAILED
+ */
+UARTTX_STATUS USART3_string_Transmit(uint8_t*msg)
+{
+	while (*msg++!='\0')
+	{
+		if(UART_TX_FAILED==USART3_char_Trans(*msg))
+			return UART_TX_FAILED;
+	}
+	
+	return UART_TX_PASSED;
+}
