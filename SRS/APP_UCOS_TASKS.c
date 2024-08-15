@@ -32,6 +32,7 @@ void CAN1_RX0_IRQHandler(void)
 		if(!(CAN1->sFIFOMailBox[CAN_FIFO_0].RIR & CAN_RI0R_IDE)){ // if id is standart
 		// Recieve a new message
 		CAN1_receive_msg();
+        CAN1->RF0R |= CAN_RF0R_RFOM0; //release	
         OSSemPost(TX_IT_SYNC_semaphore);
 		}
 	}

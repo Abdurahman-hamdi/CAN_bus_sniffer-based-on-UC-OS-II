@@ -91,6 +91,22 @@ void CAN1_receive_msg(void)
     CAN1_MSG.lower_stdid = (CAN1->sFIFOMailBox[CAN_FIFO_0].RIR >> 21);
     CAN1_MSG.upper_stdid = (CAN1->sFIFOMailBox[CAN_FIFO_0].RIR >> 29);
     CAN1_MSG.dlc         = CAN1->sFIFOMailBox[CAN_FIFO_0].RDTR;
+   if( CAN1_MSG.dlc >=1){
+		CAN1_MSG.data[0]			= CAN1->sFIFOMailBox[CAN_FIFO_0].RDLR;}					 		 	 // DATA0
+	if( CAN1_MSG.dlc>=2){
+		CAN1_MSG.data[1]			=(CAN1->sFIFOMailBox[CAN_FIFO_0].RDLR >> 8);} 					// DATA1
+	if( CAN1_MSG.dlc>=3){
+		 CAN1_MSG.data[2]			=(CAN1->sFIFOMailBox[CAN_FIFO_0].RDLR >> 16);} 					// DATA2
+	if( CAN1_MSG.dlc>=4){
+		 CAN1_MSG.data[3]			=(CAN1->sFIFOMailBox[CAN_FIFO_0].RDLR >> 24);} 					// DATA3
+	if( CAN1_MSG.dlc>=5){
+		 CAN1_MSG.data[4]			= CAN1->sFIFOMailBox[CAN_FIFO_0].RDHR;} 								// DATA4
+	if( CAN1_MSG.dlc>=6){
+		 CAN1_MSG.data[5]			=(CAN1->sFIFOMailBox[CAN_FIFO_0].RDHR >> 8);} 					// DATA5
+	if( CAN1_MSG.dlc>=7){
+		 CAN1_MSG.data[6]			=(CAN1->sFIFOMailBox[CAN_FIFO_0].RDHR >> 16);} 					// DATA6
+	if( CAN1_MSG.dlc==8){
+		 CAN1_MSG.data[7]			=(CAN1->sFIFOMailBox[CAN_FIFO_0].RDHR >> 24);} 
 }
 
 
