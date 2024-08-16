@@ -8,6 +8,7 @@
   ******************************************************************************/
  /************************************** Includes *******************************/
  #include"UART.h"
+ #include"CAN.h"
  /************************************** Constants ******************************/
  #define UARTTX_TIMEOUT_MAX               0xffu
  /**************************************Functions implementation*****************/
@@ -86,4 +87,29 @@ UARTTX_STATUS USART3_string_Transmit(uint8_t*msg)
 	}
 	
 	return UART_TX_PASSED;
+}
+
+/**
+ * @brief   USB_transmit_CAN_MSG to transmit CAN_msg along with its id to the PC over USB.
+ * @name    USB_transmit_CAN_MSG
+ * @param   void
+ * @retval  UARTTX_STATUS =PASSED OR FAILED
+ */
+
+UARTTX_STATUS USB_transmit_CAN_MSG(void)
+{
+
+	USART3_char_Transmit(CAN1_MSG.upper_stdid);
+	USART3_char_Transmit(CAN1_MSG.lower_stdid);
+	USART3_char_Transmit(' ');
+	USART3_char_Transmit(CAN1_MSG.dlc);
+	USART3_char_Transmit(' ');
+	for(uint8_t cnt=0u ; cnt<CAN1_MSG.dlc;cnt++)
+	{
+		USART3_char_Transmit(CAN1_MSG.data[cnt]);
+		USART3_char_Transmit(' ');
+	}
+	USART3_char_Transmit('\r');
+	USART3_char_Transmit('\n');
+
 }

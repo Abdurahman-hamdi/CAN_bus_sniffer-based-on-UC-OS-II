@@ -22,6 +22,7 @@ typedef enum
 void USART3_Init(void);
 UARTTX_STATUS USART3_char_Transmit(uint8_t data);
 UARTTX_STATUS USART3_string_Transmit(uint8_t*);
+UARTTX_STATUS USB_transmit_CAN_MSG(void);
 
 
 

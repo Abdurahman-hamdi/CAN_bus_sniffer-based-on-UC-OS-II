@@ -32,8 +32,12 @@ typedef enum
     CAN_CFG_PASSED,
     CAN_CFG_FAILED
 }CAN_CFG_ERR;
+
+/***************************************Extern data*************************/
+extern CAN_MSG CAN1_MSG;
 /*********************************Functions prototypes**********************/
 CAN_CFG_ERR CAN1_INIT(void);
 void CAN1_receive_msg(void);
+
 
 #endif
