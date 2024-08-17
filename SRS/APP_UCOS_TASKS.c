@@ -70,6 +70,17 @@ void APP_system_init(void)
     CAN1_GPIO_config();//init can1_gpio
     USART3_Init();//init usart3
     CAN1_INIT();//init can1
+}
+
+void App_system_run(void)
+{
+    OSStart();
+    while(1);
+}
+
+int main(void)
+{
+    APP_system_init();
     OSStart();
 
 
