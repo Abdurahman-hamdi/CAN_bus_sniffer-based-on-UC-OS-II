@@ -29,6 +29,9 @@ set(lss_file ${application_name}.lss)
 add_executable(${elf_file} ${sources})
 # add includes to elf file
 target_include_directories(${elf_file} PUBLIC stm32f4xx_conf.h stm32f4xx_it.h)
+
+# add includes to elf file
+target_include_directories(${elf_file} PUBLIC ../INC)
 # link StdPeriph library to project
 target_link_libraries(${elf_file} PUBLIC stm32f4xx)
 

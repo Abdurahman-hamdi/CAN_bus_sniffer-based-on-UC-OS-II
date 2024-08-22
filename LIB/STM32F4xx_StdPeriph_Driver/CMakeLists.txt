@@ -45,8 +45,8 @@ add_library(stm32f4xx ${sources})
 
 # add include directories for StdPeriph library and CMSIS
 target_include_directories(stm32f4xx PUBLIC inc)
-target_include_directories(stm32f4xx PUBLIC inc/cmsis)
-
+target_include_directories(stm32f4xx PUBLIC ../CMSIS/include)
+target_include_directories(stm32f4xx PUBLIC ../Device/STM32F4xx/Include)
 
 target_compile_definitions(stm32f4xx PUBLIC HSE_VALUE=${HSE_VALUE})
 
